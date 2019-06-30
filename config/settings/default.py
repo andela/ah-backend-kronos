@@ -23,6 +23,7 @@ INSTALLED_APPS = (
     'authors.apps.profiles',
     'authors.apps.articles',
     'authors.apps.comments',
+    'authors.apps.social_auth',
     'django_filters'
 )
 
@@ -114,3 +115,5 @@ SENDGRID_API_KEY = os.environ.get('SENDGRID_API_KEY')
 EMAIL_PORT = os.environ.get('EMAIL_PORT')
 EMAIL_USE_TLS = True
 DEFAULT_FROM_EMAIL = os.environ.get('DEFAULT_FROM_EMAIL')
+APPEND_SLASH=False
+SOCIAL_AUTH_POSTGRES_JSONFIELD = True

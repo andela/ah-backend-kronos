@@ -16,9 +16,9 @@ class Migration(migrations.Migration):
             name='ReportArticle',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('body', models.TextField()),
+                ('reason', models.TextField()),
                 ('created_at', models.DateTimeField(auto_now_add=True)),
-                ('article', models.ForeignKey(blank=True, on_delete=django.db.models.deletion.CASCADE, to='articles.Article')),
+                ('article', models.ForeignKey(blank=True, on_delete=django.db.models.deletion.CASCADE, to='articles.Article',related_name='reports')),
                 ('reporter', models.ForeignKey(blank=True, on_delete=django.db.models.deletion.CASCADE, to='profiles.Profile')),
             ],
         ),
