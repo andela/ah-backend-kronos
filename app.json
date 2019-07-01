@@ -1,23 +1,75 @@
 {
-  "name": "ah-haven-space-sprinters",
-  "scripts": {},
-  "env": {"EMAIL_HOST_PASSWORD":{"required":true},
-          "EMAIL_HOST_USER":{"required":true},
-          "EMAIL_BACKEND":{"required":true},
-          "SECRET_KEY":{"required":true},
-          "STATIC_URL":{"required":true},
-          "SENDGRID_API_KEY":{"required":true},
-          "DEBUG":{"required":true},
-          "ADMIN_URL":{"required":true},
-          "DEFAULT_FROM_EMAIL":{"required":true},
-          "EMAIL_PORT":{"required":true},
-          "DJANGO_SETTINGS_MODULE":{"required":true},
-          "EMAIL_USE_TLS":{"required":true},
-          "EMAIL_HOST":{"required":true}},
-
-
-  "formation": {},
-  "addons": ["heroku-postgresql"],
-  "buildpacks": [],
+  "addons": [
+    "heroku-postgresql"
+  ],
+  "buildpacks": [
+    {
+      "url": "heroku/python"
+    }
+  ],
+  "env": {
+    "ADMIN_URL": {
+      "required": true
+    },
+    "DEFAULT_FROM_EMAIL": {
+      "required": true
+    },
+    "DJANGO_SETTINGS_MODULE": {
+      "required": true
+    },
+    "EMAIL_BACKEND": {
+      "required": true
+    },
+    "EMAIL_HOST": {
+      "required": true
+    },
+    "EMAIL_HOST_PASSWORD": {
+      "required": true
+    },
+    "EMAIL_HOST_USER": {
+      "required": true
+    },
+    "EMAIL_PORT": {
+      "required": true
+    },
+    "EMAIL_USE_TLS": {
+      "required": true
+    },
+    "HEROKU_POSTGRESQL_CYAN_URL": {
+      "required": true
+    },
+    "SECRET_KEY": {
+      "required": true
+    },
+    "SENDGRID_API_KEY": {
+      "required": true
+    },
+    "SOCIAL_AUTH_FACEBOOK_KEY": {
+      "required": true
+    },
+    "SOCIAL_AUTH_FACEBOOK_SECRET": {
+      "required": true
+    },
+    "SOCIAL_AUTH_GOOGLE_OAUTH2_KEY": {
+      "required": true
+    },
+    "SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET": {
+      "required": true
+    },
+    "SOCIAL_AUTH_TWITTER_KEY": {
+      "required": true
+    },
+    "SOCIAL_AUTH_TWITTER_SECRET": {
+      "required": true
+    },
+    "STATIC_URL": {
+      "required": true
+    }
+  },
+  "formation": {
+  },
+  "name": "ah-backend-kronos",
+  "scripts": {
+  },
   "stack": "heroku-18"
 }
