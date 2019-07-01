@@ -20,7 +20,7 @@ PASSWORD_HASHERS = (
 
 ALLOWED_HOSTS += ('127.0.0.1', 'localhost', '0.0.0.0:5000',)
 
-INSTALLED_APPS += ['debug_toolbar', 'django_extensions']
+INSTALLED_APPS += ('debug_toolbar', 'django_extensions',)
 
 
 MIDDLEWARE += ('debug_toolbar.middleware.DebugToolbarMiddleware',)

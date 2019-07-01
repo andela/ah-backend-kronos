@@ -1,19 +1,17 @@
+import json
+from unittest.mock import patch
+
+from django.core.exceptions import ValidationError
 from django.test import TestCase
 from rest_framework import status
 from rest_framework.test import APIClient
+
 from authors.apps.authentication.models import User
-from django.core.exceptions import ValidationError
-
-import json
-
-from unittest.mock import patch
 
 from ..login_register import login_or_register_social_user
-from .test_data import (
-    invalid_google_token, invalid_facebook_token, invalid_twitter_token, 
-    valid_twitter_token, valid_google_token, valid_facebook_token, 
-    valid_user
-)
+from .test_data import (invalid_facebook_token, invalid_google_token,
+                        valid_facebook_token, valid_google_token, valid_user)
+
 
 class SocialAuthenticationTestCase(TestCase):
 
@@ -34,20 +32,13 @@ class SocialAuthenticationTestCase(TestCase):
         )
         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
 
-    def test_twitter_api_using_invalid_tokens(self):
-        response = self.client.post(
-            '/api/social-auth/twitter/',
-            {"user": invalid_twitter_token}, format='json'
-        )
-        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
-
 
     @patch('facebook.GraphAPI.get_object')
     def test_facebook_social_login_with_valid_access_token(self, facebook_user):
 
         facebook_user.return_value = {
-            'email': 'reifred33@gmail.com',
-            'name': 'reifred'
+            'email': 'kronos@gmail.com',
+            'name': 'kronos'
         }
         response = self.client.post(
             '/api/social-auth/facebook/', 
@@ -60,8 +51,8 @@ class SocialAuthenticationTestCase(TestCase):
     def test_google_social_login_using_valid_tokens(self, google_user):
 
         google_user.return_value = {
-            'email': 'reifred33@gmail.com',
-            'name': 'reifred'
+            'email': 'kronos@gmail.com',
+            'name': 'kronos'
         }
         response = self.client.post(
             '/api/social-auth/google/', 
@@ -75,8 +66,8 @@ class SocialAuthenticationTestCase(TestCase):
         user.is_active = True
         user.save()
         returned_social_user_data = {
-            'email': 'hjones@email.com',
-            'name': 'henryjones'
+            'email': 'kronosdevs@gmail.com',
+            'name': 'kronosDevs'
         }
         response = login_or_register_social_user(returned_social_user_data)
         self.assertIsInstance(response, dict)

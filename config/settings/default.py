@@ -4,7 +4,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__fil
 
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
-DEBUG = os.environ['DEBUG']
+DEBUG = os.environ.get('DEBUG')
 
 INSTALLED_APPS = (
     'django.contrib.admin',
@@ -117,9 +117,3 @@ EMAIL_USE_TLS = True
 DEFAULT_FROM_EMAIL = os.environ.get('DEFAULT_FROM_EMAIL')
 APPEND_SLASH=False
 SOCIAL_AUTH_POSTGRES_JSONFIELD = True
-SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = os.environ.get('SOCIAL_AUTH_GOOGLE_OAUTH2_KEY')
-SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = os.environ.get('SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET')
-SOCIAL_AUTH_FACEBOOK_KEY = os.environ.get('SOCIAL_AUTH_FACEBOOK_KEY')
-SOCIAL_AUTH_FACEBOOK_SECRET = os.environ.get('SOCIAL_AUTH_FACEBOOK_SECRET')
-TWITTER_CONSUMER_KEY = os.environ.get('SOCIAL_AUTH_TWITTER_KEY')
-TWITTER_CONSUMER_SECRET = os.environ.get('SOCIAL_AUTH_TWITTER_SECRET')

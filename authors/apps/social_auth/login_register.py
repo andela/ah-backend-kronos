@@ -1,10 +1,11 @@
-from rest_framework.response import Response
-from rest_framework import status, exceptions
 from django.core.exceptions import ValidationError
+from rest_framework.response import Response
 
 from authors.apps.authentication.models import User
 
+
 def login_or_register_social_user(social_user):
+    import pdb; pdb.set_trace()
 
     try:
         user = User.objects.get(email=social_user.get('email'))
@@ -12,7 +13,7 @@ def login_or_register_social_user(social_user):
         return {
                 'email': user.email, 
                 'username': user.username, 
-                'token': user.token
+                'token': user.auth_token()
             }
 
     except User.DoesNotExist:
@@ -32,5 +33,5 @@ def login_or_register_social_user(social_user):
         return {
                 'email': social_user.get('email'), 
                 'username': social_user.get('name'),
-                'token': new_user.token
+                'token': new_user.auth_token()
             }
