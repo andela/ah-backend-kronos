@@ -5,8 +5,8 @@ from django.views import defaults as default_views
 from rest_framework.documentation import include_docs_urls
 from rest_framework_swagger.views import get_swagger_view
 
-core_schema_view = include_docs_urls(title='AH Haven Space Sprinters API')
-schema_view = get_swagger_view(title='AH Haven Space Sprinters API')
+core_schema_view = include_docs_urls(title='Authors Haven Kronos API')
+schema_view = get_swagger_view(title='Authors Haven Kronos API')
 
 urlpatterns = [
     path(settings.ADMIN_URL, admin.site.urls),

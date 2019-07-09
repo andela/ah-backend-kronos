@@ -4,7 +4,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__fil
 
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
-DEBUG = os.environ['DEBUG']
+DEBUG = os.environ.get('DEBUG')
 
 INSTALLED_APPS = (
     'django.contrib.admin',
